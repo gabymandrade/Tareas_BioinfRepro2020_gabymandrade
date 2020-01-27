@@ -1,0 +1,62 @@
+---
+title: "Tarea3.4Bioinf"
+author: "Gabriela Martínez Andrade"
+date: "1/26/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# **TAREA 3.4.-  HACER UN SCRIPT**
+
+Abrir tu archivo que se llama reads.txt. Es importante hacer un getwd y setwd para saber dónde estamos parados.
+
+```{r}
+getwd()
+```
+
+```{r}
+setwd("~/Desktop/BioinfinvRepro/Unidad3/PracUni3/ejemplosgenerales/bin")
+```
+
+```{r}
+reads<-read.delim("../data/reads.txt")
+```
+
+
+Posteriormente debo hacer un barplot para obtener una gráfica de barras,
+donde las columnas serán coloredas de acuerdo a cada columna,
+los colores serán los que trae R default
+xlab te permite cambia el nombre del eje x y ylab para
+cambiar el nombre el eje y, mientras que main te permite 
+poner el título a la gráfica.
+
+
+```{r}
+barplot(reads$nreads, col=reads$Library,main ="Número de reads por muestra",
+        xlab="Samples", ylab="Reads")
+```
+
+
+
+**Para poner leyendas**
+
+legend(x="topleft", legend=levels(reads$Library), fill=palette()[1:3]) 
+
+
+
+Para cambiar colores se hace mediante la función palette, y los colores 
+los obtuve de la [página de internet](https://medialab.github.io/iwanthue/)
+
+
+```{r}
+palette(c("#e1b9c1", "#c1d5b9", "#a7cae3","blue","green","red"))
+```
+
+
+
+
+
+
